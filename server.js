@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(require('./routes'));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/pizza-hunt', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/nosql-social-network', {
   useNewUrlParser: true,
   useUnifiedTopology: true 
 }); 
@@ -18,3 +18,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/pizza-hun
 mongoose.set('debug', true);
 
 app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
+
+
+//mongoose server
+//models for thoughts
+//comment for the thoughts
+//crud for thoughts
+//add and remove friends
