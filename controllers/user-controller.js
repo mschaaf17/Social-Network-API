@@ -92,15 +92,20 @@ getUserById({params}, res) {
 addFriend({params, body}, res) {
 //if I don't create a new user i cannot find the user by its id?
 //creating a user allows it to connect
-    console.log(body)
-    User.create(body)
-    .then(({_id}) => {
-        return User.findOneAndUpdate(
+    // console.log(body)
+    // User.create(body)
+    // .then(({_id}) => {
+    //     return 
+        User.findOneAndUpdate(
             {_id: params.userId},
-            {$addToSet: {friends:_id}},
+            {$addToSet: {friends: body}},
             {new: true}
         )
-    })
+        // return User.findOneAndUpdate(
+        //     {_id: params.friendId},
+        //     {$addToSet: {friends: params.userId}},
+        //     {new: true}
+        // )
     .then(dbUserData => {
         if(!dbUserData) {
             res.status(404).json({message: 'no user found with this id'})
