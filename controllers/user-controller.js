@@ -90,6 +90,8 @@ getUserById({params}, res) {
 // },
 
 addFriend({params, body}, res) {
+//if I don't create a new user i cannot find the user by its id?
+//creating a user allows it to connect
     console.log(body)
     User.create(body)
     .then(({_id}) => {
