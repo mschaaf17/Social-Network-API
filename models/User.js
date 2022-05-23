@@ -5,15 +5,13 @@ const UserSchema = new Schema({
         type: String,
         required: 'You need to provide a username.',
         trim: true,
-        //unique
-        //email
+        unique: true,
     },
     email:{
         type: String,
-        required: true
-        //unique
-        //must match a valid email address(look into mongoose matching validation)
-
+        required: true,
+        unique: true,
+        match: /.+\@.+\..+/,
     },
 
     //this can be written as the second practice in activites?
@@ -25,7 +23,7 @@ const UserSchema = new Schema({
         }
 ],
     friends: [
-        //array of _id values referening the user model (self-refernece)
+        //array of _id values referening the user model (self-reference)
         {
             type: Schema.Types.ObjectId,
             ref: 'User'

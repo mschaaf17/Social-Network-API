@@ -2,6 +2,14 @@ const { Thought, User } = require('../models')
 
 //do i need a route for get request? in the route
 const thoughtController = {
+    getAllThoughts(req, res) {
+        Thought.find({})
+        .then(thoughtData => res.json(thoughtData))
+        .catch(err => {
+            console.log(err)
+            res.sendStatus(400)
+        })
+    },
     getThoughtById({params}, res) {
         Thought.findOne({_id: params.id})
         .then(dbUserData => {
@@ -34,6 +42,19 @@ const thoughtController = {
             res.json(dbUserData)
         })
         .catch(err => res.json(err))
+},
+
+//update a thought
+updateThought({params, body}, res) {
+    Thought.findOneAndUpdate({_id: params.id}, body, {new: true, runValidators: true})
+    .then(thoughtData => {
+        if(!thoughtData) {
+            res.status(404).json({message: 'no thought found with this id'})
+            return
+        }
+        res.json(thoughtData)
+    })
+    .catch(err => res.status(400).json(err))
 },
 
 //add reaction to thought

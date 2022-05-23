@@ -1,16 +1,16 @@
-const router = require('express').Router()
+// const router = require('express').Router()
 
-const { addFriend, removeFriend}= require('../../controllers/friend-controller')
-
-
-//friends/:userid
-router
-.route('/:userId')
-.post(addFriend)
+// const { addFriend, removeFriend}= require('../../controllers/friend-controller')
 
 
-// how to delete a users friend???
-router
-.route('/:userId/:friendId').delete(removeFriend)
+// //friends/:userid
+// router
+// .route('/:userId')
+// .post(addFriend)
 
-module.exports = router
+
+// // how to delete a users friend???
+// router
+// .route('/:userId/:friendId').delete(removeFriend)
+
+// module.exports = router
