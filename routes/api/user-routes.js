@@ -33,7 +33,7 @@ router
 .route('/friends/:userId').put(addFriend)
 
 
-
+//users/friends
 router.route('/friends/:userId/:friendId').delete(removeFriend)
 // .put(addFriend)
 
