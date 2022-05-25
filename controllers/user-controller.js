@@ -98,20 +98,35 @@ addFriend({params, body}, res) {
     //     return 
         User.findOneAndUpdate(
             {_id: params.userId},
-            {$addToSet: {friends: body}},
+            {$addToSet: {friends: body._id}},
             {new: true}
         )
-        // return User.findOneAndUpdate(
+        //.then() return User.findOneAndUpdate(
         //     {_id: params.friendId},
         //     {$addToSet: {friends: params.userId}},
         //     {new: true}
         // )
-    .then(dbUserData => {
-        if(!dbUserData) {
+    .then(dbUserData1 => {
+        if(!dbUserData1) {
             res.status(404).json({message: 'no user found with this id'})
             return
         }
-        res.json(dbUserData)
+        // res.json(dbUserData)
+        console.log(dbUserData1)
+        User.findOneAndUpdate(
+            {_id: body._id},
+            {$addToSet: {friends: params.userId}},
+            {new: true}
+        )
+        .then(dbUserData => {
+            console.log(dbUserData)
+            if(!dbUserData) {
+                res.status(404).json({message: 'no user found with this id'})
+                return
+            }
+            res.json([dbUserData, dbUserData1])
+        })
+
     })
     .catch(err=> res.json(err))
 },
