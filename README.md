@@ -26,7 +26,7 @@ To get information about users thoughts.
 
 ## Installation:
 Clone the code and then run npm install. 
-To run the application run npm start, npm run seed.
+To run the application run npm start.
 
 ## Contribution:
 Contact Madison Schaaf, the email is provided below.
