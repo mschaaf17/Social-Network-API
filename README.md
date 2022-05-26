@@ -10,9 +10,9 @@
 * [Contact Me](#for-any-questions-contact)
 
 ## Description:
-A back end API for a social network website that uses a NoSQL database.
-*Built with: Node.js, Express, Javascript, MongoDB
-Insomnia is used to test out routes.
+A back end API for a social network website that uses a NoSQL database. 
+*Built with: Node.js, Express, Javascript, MongoDB, and Mongoose. 
+Insomnia was used to test out routes.
 
 ## Video Demo:
 Part one and two:
