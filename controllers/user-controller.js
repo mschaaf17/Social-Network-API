@@ -90,28 +90,18 @@ getUserById({params}, res) {
 // },
 
 addFriend({params, body}, res) {
-//if I don't create a new user i cannot find the user by its id?
-//creating a user allows it to connect
-    // console.log(body)
-    // User.create(body)
-    // .then(({_id}) => {
-    //     return 
+ 
         User.findOneAndUpdate(
             {_id: params.userId},
             {$addToSet: {friends: body._id}},
             {new: true}
         )
-        //.then() return User.findOneAndUpdate(
-        //     {_id: params.friendId},
-        //     {$addToSet: {friends: params.userId}},
-        //     {new: true}
-        // )
+     
     .then(dbUserData1 => {
         if(!dbUserData1) {
             res.status(404).json({message: 'no user found with this id'})
             return
         }
-        // res.json(dbUserData)
         console.log(dbUserData1)
         User.findOneAndUpdate(
             {_id: body._id},
@@ -166,25 +156,62 @@ addFriend({params, body}, res) {
 // }
 
 
-removeFriend({params}, res) {
-    User.findOneAndDelete({_id: params.friendId})
-    .then(deletedFriend => {
-        if(!deletedFriend) {
-            return res.status(404).json({message: 'no friend with that id'})
-        }
-        return User.findOneAndUpdate(
-            {_id: params.userId},
-            {$pull: {friends: params.friendId}},
-            {new: true}
-        )
-    })
+
+
+
+
+
+
+// removeFriend({params}, res) {
+//     User.findOneAndUpdate({_id: params.friendId})
+//     .then(deletedFriend => {
+//         if(!deletedFriend) {
+//             return res.status(404).json({message: 'no friend with that id'})
+//         }
+//         return User.findOneAndUpdate(
+//             {_id: params.userId},
+//             {$pull: {friends: params.friendId}},
+//             {new: true}
+//         )
+//     })
+//     .then(dbUserData => {
+//         if(!dbUserData) {
+//             res.status(404).json({message: 'No user found with this id'})
+//         }
+//         res.json(dbUserData)
+//     })
+//     .catch(err => res.json(err))
+// }
+removeFriend({params, body}, res) {
+ 
+    User.findOneAndUpdate(
+        {_id: params.userId},
+        {$pull: {friends: params.friendId}},
+        {new: true}
+    )
+ 
+.then(dbUserData1 => {
+    if(!dbUserData1) {
+        res.status(404).json({message: 'no user found with this id'})
+        return
+    }
+    console.log(dbUserData1)
+    User.findOneAndUpdate(
+        {_id: params.friendId},
+        {$pull: {friends: params.userId}},
+        {new: true}
+    )
     .then(dbUserData => {
+        console.log(dbUserData)
         if(!dbUserData) {
-            res.status(404).json({message: 'No user found with this id'})
+            res.status(404).json({message: 'no user found with this id'})
+            return
         }
-        res.json(dbUserData)
+        res.json([dbUserData, dbUserData1])
     })
-    .catch(err => res.json(err))
+
+})
+.catch(err=> res.json(err))
 }
 
 
