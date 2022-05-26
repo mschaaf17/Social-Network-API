@@ -16,10 +16,9 @@ Insomnia is used to test out routes.
 
 ## Video Demo:
 Part one and two:
-[https://drive.google.com/file/d/10MjoSes-hrBWA-JKvxa5-aOWfT11aqSd/view
-](https://drive.google.com/file/d/1Fo-rpAHQIPjwtQom4v6TRldkhOuvO911/view
+https://drive.google.com/file/d/1Fo-rpAHQIPjwtQom4v6TRldkhOuvO911/view
 
-https://drive.google.com/file/d/1mEFCp3aKcmmaYbnvGBOhBNtX2HL-NScv/view)
+https://drive.google.com/file/d/1mEFCp3aKcmmaYbnvGBOhBNtX2HL-NScv/view
 
 
 ## Usage:
