@@ -3,8 +3,6 @@ const dateFormat = require('../utils/dateFormat');
 
 
 const ReactionSchema = new Schema({
-    //explanation of this??
-    //there is an id with the reaction text defaulted?
     reactionId: {
         type: Schema.Types.ObjectId,
         default: () => new Types.ObjectId()
@@ -26,17 +24,14 @@ const ReactionSchema = new Schema({
 },
 {
     toJSON: {
-
-        //getters true?? apply to every query true?
         getters: true
     },
-    //extra ids?
+    //extra ids
     id: false
 })
 
 
 const ThoughtSchema = new Schema({
-    //user that wrote this? connect to userid?
     username: {
         type: String,
         required: 'You need your username.',

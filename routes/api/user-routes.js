@@ -9,7 +9,7 @@ const {
     removeFriend
 } = require('../../controllers/user-controller')
 
-//set up GEt all and POST at /api/users
+
 
 router 
 .route('/')
@@ -17,7 +17,6 @@ router
 .post(createUser)
 
 
-//set up GET one, PUT, and DELETE at /api/users/:id
 
 router
 .route('/:id')
@@ -35,12 +34,9 @@ router
 
 //users/friends
 router.route('/friends/:userId/:friendId').delete(removeFriend)
-// .put(addFriend)
 
 
-// how to delete a users friend???
-// router
-// .route('/friends/:id/:friendId').put(removeFriend)
+
 
 
 module.exports = router
