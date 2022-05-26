@@ -15,8 +15,11 @@ A back end API for a social network website that uses a NoSQL database.
 Insomnia is used to test out routes.
 
 ## Video Demo:
-https://drive.google.com/file/d/10MjoSes-hrBWA-JKvxa5-aOWfT11aqSd/view
+Part one and two:
+[https://drive.google.com/file/d/10MjoSes-hrBWA-JKvxa5-aOWfT11aqSd/view
+](https://drive.google.com/file/d/1Fo-rpAHQIPjwtQom4v6TRldkhOuvO911/view
 
+https://drive.google.com/file/d/1mEFCp3aKcmmaYbnvGBOhBNtX2HL-NScv/view)
 
 
 ## Usage:
